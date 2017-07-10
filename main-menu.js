@@ -1,6 +1,7 @@
 const { app, Menu } = require('electron');
+const { sayHi } = require('./dialogs');
 
-const setMainMenu = () => {
+const setMainMenu = (window) => {
     const template = [
         {
             label: app.getName(),
@@ -10,6 +11,12 @@ const setMainMenu = () => {
                     accelerator: 'Cmd+Q',
                     click() {
                         app.quit();
+                    }
+                },
+                {
+                    label: 'Say Hi',
+                    click() {
+                        sayHi(window);
                     }
                 }
             ]
