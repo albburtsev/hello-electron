@@ -1,4 +1,5 @@
-const {app, BrowserWindow} = require('electron');
+const { app, BrowserWindow } = require('electron');
+const { setMainMenu } = require('./main-menu')
 const path = require('path');
 
 let mainWindow;
@@ -11,5 +12,7 @@ app.on('ready', () => {
     mainWindow.loadURL(path.join('file://', __dirname, 'index.html'));
     mainWindow.on('ready-to-show', () => {
         mainWindow.show();
-    })
+    });
+
+    setMainMenu();
 });
